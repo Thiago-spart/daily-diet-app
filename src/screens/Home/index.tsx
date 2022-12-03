@@ -1,5 +1,5 @@
 import { Header } from "@components/Header"
-import { StatusBar, Text, View } from "react-native"
+import { StatusView } from "@components/StatusView"
 
 import * as S from "./styles"
 
@@ -8,7 +8,7 @@ export const Home: React.FC = () => {
 		<S.Container>
 			<Header />
 			
-      <Text>Open up App.tsx to start working on your app!</Text>
+			<StatusView status="below" />
     </S.Container>
 	)
 }
