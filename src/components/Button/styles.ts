@@ -1,6 +1,7 @@
 import { TouchableHighlight } from "react-native";
 import styled, { css } from "styled-components/native";
 import { ButtonTypeStyleProps, StyleButtonProps } from "./types";
+import { MaterialIcons } from '@expo/vector-icons'
 
 export const Container = styled(TouchableHighlight)<StyleButtonProps>`
 	flex: 1;
@@ -23,6 +24,16 @@ export const Container = styled(TouchableHighlight)<StyleButtonProps>`
 
 	justify-content: center;
 	align-items: center;
+	flex-direction: row;
+`;
+
+export const Icon = styled(MaterialIcons).attrs<StyleButtonProps>(({ theme, type }) => ({
+	size: 18,
+	color: type === "PRIMARY" 
+		? theme.COLORS.WHITE
+		: theme.COLORS.GRAY_100,
+}))`
+	margin-right: 12px;
 `;
 
 export const Title = styled.Text<{ type: ButtonTypeStyleProps }>`
