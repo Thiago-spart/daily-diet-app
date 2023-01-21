@@ -1,15 +1,25 @@
-import { Button } from "@components/Button"
-import { Header } from "@components/Header"
-import { StatusView } from "@components/StatusView"
+import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
 
-import * as S from "./styles"
+import { Header } from "@components/Header";
+import { StatusView } from "@components/StatusView";
+
+import * as S from "./styles";
 
 export const Home: React.FC = () => {
+	const navigation = useNavigation();
+
+	const handleNewGroup = () => {
+		navigation.navigate("status");
+	};
+
 	return (
 		<S.Container>
 			<Header />
-			
-			<StatusView status="below" />
-    </S.Container>
-	)
-}
+
+			<TouchableOpacity onPress={handleNewGroup}>
+				<StatusView status="below" />
+			</TouchableOpacity>
+		</S.Container>
+	);
+};

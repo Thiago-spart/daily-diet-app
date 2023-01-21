@@ -1,26 +1,29 @@
-module.exports = function(api) {
-  api.cache(true);
-  return {
-    presets: ['babel-preset-expo'],
-    plugins: [
-      [
-        'module-resolver',
-        {
-          root: ['./src'],
-          alias: {
-            '@assets': './src/assets',
-            '@components': './src/components',
-            '@routes': './src/routes',
-            '@screens': './src/screens',
-            '@storage': './src/storage',
-            '@theme': './src/theme',
-            '@utils': './src/utils',
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+module.exports = function (api) {
+	api.cache(true);
+
+	return {
+		presets: ["babel-preset-expo"],
+		plugins: [
+			[
+				"module-resolver",
+				{
+					root: ["./src"],
+					alias: {
+						"@assets": "./src/assets",
+						"@components": "./src/components",
+						"@routes": "./src/routes",
+						"@screens": "./src/screens",
+						"@storage": "./src/storage",
+						"@theme": "./src/theme",
+						"@utils": "./src/utils",
 						"@hooks": "./src/hooks",
 						"@services": "./src/services",
-          }
-        }
-      ],
-			'react-native-reanimated/plugin',
-    ]
-  };
+					},
+				},
+			],
+			"react-native-reanimated/plugin",
+		],
+	};
 };

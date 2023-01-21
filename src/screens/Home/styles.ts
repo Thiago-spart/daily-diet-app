@@ -1,4 +1,5 @@
 import { SafeAreaView } from "react-native-safe-area-context";
+
 import styled, { css } from "styled-components/native";
 
 export const Container = styled(SafeAreaView)`
@@ -14,4 +15,4 @@ export const Title = styled.Text`
 		font-size: ${theme.FONT_SIZE.MD}xp;
 	`}
 	margin-top: 40px;
-`
+`;
