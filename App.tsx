@@ -1,20 +1,30 @@
-import theme from '@theme/index';
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable import/no-default-export */
+/* eslint-disable react/function-component-definition */
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+import { QueryClientProvider } from "@tanstack/react-query";
 import { StatusBar } from "react-native";
-import { ThemeProvider } from 'styled-components/native';
 
-import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from "@expo-google-fonts/nunito-sans"
-import { Loading } from '@components/Loading';
-import { Routes } from '@routes/index';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { queryClient } from '@services/queryClient';
+import { ThemeProvider } from "styled-components/native";
+
+import {
+	useFonts,
+	NunitoSans_400Regular,
+	NunitoSans_700Bold,
+} from "@expo-google-fonts/nunito-sans";
+import { Routes } from "@routes/index";
+import { queryClient } from "@services/queryClient";
+import theme from "@theme/index";
+
+import { Loading } from "@components/Loading";
 
 export default function App() {
-  const [ fontsLoaded ] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
+	const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
 
-  return (
+	return (
 		<QueryClientProvider client={queryClient}>
 			<ThemeProvider theme={theme}>
-				<StatusBar 
+				<StatusBar
 					barStyle="dark-content"
 					backgroundColor="transparent"
 					translucent
@@ -22,5 +32,5 @@ export default function App() {
 				{fontsLoaded ? <Routes /> : <Loading />}
 			</ThemeProvider>
 		</QueryClientProvider>
-  );
+	);
 }

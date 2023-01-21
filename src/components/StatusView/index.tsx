@@ -3,11 +3,11 @@ import { useTheme } from "styled-components/native"
 import * as S from "./styles"
 import { StatusViewProps } from "./types"
 
-export const StatusView: React.FC<StatusViewProps> = ({ status }) => {
+export const StatusView: React.FC<StatusViewProps> = ({ status, ...rest }) => {
 	const theme = useTheme()
 	
 	return (
-		<S.Container status={status}>
+		<S.Container status={status} {...rest}>
 			<S.Icon color={status === "above" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK} />
 			
 			<S.PercentageText>
