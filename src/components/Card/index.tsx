@@ -2,12 +2,17 @@ import type { CardProps } from "./types";
 
 import * as S from "./styles";
 
-export const Card: React.FC<CardProps> = ({ schema = "gray", ...rest }) => {
+export const Card: React.FC<CardProps> = ({
+	schema = "gray",
+	subtitle,
+	title,
+	...rest
+}) => {
 	return (
 		<S.Container schema={schema} {...rest}>
-			<S.PercentageText>90,86%</S.PercentageText>
+			<S.Title>{title}</S.Title>
 
-			<S.Subtitle>das refeições dentro da dieta</S.Subtitle>
+			<S.Subtitle>{subtitle}</S.Subtitle>
 		</S.Container>
 	);
 };

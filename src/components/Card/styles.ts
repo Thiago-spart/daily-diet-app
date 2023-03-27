@@ -1,12 +1,19 @@
 import styled, { css } from "styled-components/native";
 
-import type { Schema } from "./types";
+import * as StyledTheme from "@theme/index";
 
-export const Container = styled.View<{ schema: Schema }>`
-	background-color: ${({ theme, schema }) =>
-		schema === "green" ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
-	margin-top: 32px;
+import type { CardStyleProps } from "./types";
 
+const themeVariations: Record<CardStyleProps["schema"], string> = {
+	gray: StyledTheme.default.COLORS.GRAY_600,
+	green: StyledTheme.default.COLORS.GREEN_LIGHT,
+	red: StyledTheme.default.COLORS.RED_LIGHT,
+};
+
+export const Container = styled.View<CardStyleProps>`
+	background-color: ${({ schema }) =>
+		schema ? themeVariations[schema] : themeVariations.gray};
+	width: 100%;
 	position: relative;
 
 	align-items: center;
@@ -17,7 +24,7 @@ export const Container = styled.View<{ schema: Schema }>`
 	padding: 20px 16px;
 `;
 
-export const PercentageText = styled.Text`
+export const Title = styled.Text`
 	${({ theme }) => css`
 		color: ${theme.COLORS.GRAY_100};
 		font-weight: ${theme.FONT_FAMILY.BOLD};
@@ -30,5 +37,6 @@ export const Subtitle = styled.Text`
 		color: ${theme.COLORS.GRAY_200};
 		font-weight: ${theme.FONT_FAMILY.REGULAR};
 		font-size: ${theme.FONT_SIZE.SM}px;
+		text-align: center;
 	`}
 `;

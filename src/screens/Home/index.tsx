@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 
-import { Header } from "@components/Header";
+import { MainHeader } from "@components/Header/MainHeader";
 import { StatusView } from "@components/StatusView";
 
 import * as S from "./styles";
@@ -15,7 +15,7 @@ export const Home: React.FC = () => {
 
 	return (
 		<S.Container>
-			<Header />
+			<MainHeader />
 
 			<TouchableOpacity onPress={handleNewGroup}>
 				<StatusView status="below" />
