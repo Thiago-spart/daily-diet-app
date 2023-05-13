@@ -1,12 +1,15 @@
-import * as S from './styles'
-import { ButtonProps } from './types'
+import type { ButtonProps } from "./types";
 
-export const ButtonIcon: React.FC<ButtonProps> = ({ type = "PRIMARY", icon, ...rest}) => {
+import * as S from "./styles";
+
+export const ButtonIcon: React.FC<ButtonProps> = ({
+	type = "PRIMARY",
+	icon,
+	...rest
+}) => {
 	return (
-		<S.Container
-			{...rest}
-		>
+		<S.Container {...rest}>
 			<S.Icon type={type} name={icon} />
 		</S.Container>
-	)
-}
+	);
+};

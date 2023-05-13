@@ -1,14 +1,22 @@
-import * as S from "./styles"
-import { ButtonProps } from "./types"
+import { TouchableOpacity } from "react-native";
 
-export const Button: React.FC<ButtonProps> = ({ title, type = "PRIMARY", icon, ...rest }) => {
+import type { ButtonProps } from "./types";
+
+import * as S from "./styles";
+
+export const Button: React.FC<ButtonProps> = ({
+	title,
+	type = "PRIMARY",
+	icon,
+	...rest
+}) => {
 	return (
-		<S.Container type={type} {...rest}>
-			<>
+		<TouchableOpacity {...rest}>
+			<S.Container type={type}>
 				{icon && <S.Icon type={type} name={icon} />}
-				
+
 				<S.Title type={type}>{title}</S.Title>
-			</>
-		</S.Container>
-	)
-}
+			</S.Container>
+		</TouchableOpacity>
+	);
+};
